@@ -1,0 +1,23 @@
+[input]
+method = fifo
+source = /tmp/mpd-cava.fifo
+sample_rate = 44100
+
+[general]
+bars = 60
+framerate = 60
+autosens = 1
+
+[output]
+method = ncurses
+channels = stereo
+mono_option = average
+
+[color]
+gradient = 1
+gradient_color_1 = '#00ffff'
+gradient_color_2 = '#0000ff'
+gradient_color_3 = '#ff00ff'
+
+[smoothing]
+noise_reduction = 0.77

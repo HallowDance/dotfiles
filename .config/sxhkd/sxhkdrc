@@ -1,0 +1,72 @@
+############## SYSTEM ####################################################
+# Terminal
+# Lock Screen
+super + F3
+        i3lock-fancy -t "Speak Friend and Enter" -f Inconsolata  --
+
+
+# Audio Controls
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Claude TTS skip (super+m: skip current; super+shift+m: clear queue)
+super + m
+        $HOME/.claude/hooks/skip-tts.sh
+super + shift + m
+        $HOME/.claude/hooks/skip-tts.sh --all
+
+# Brightness Controls
+XF86MonBrightnessUp
+         xbacklight -inc 5 # increase screen
+# brightness
+XF86MonBrightnessDown
+         xbacklight -dec 5 # decrease screen
+
+
+############### PROGRAMS ##################################################
+# Change wallpaper
+super + shift + p
+        feh --randomize --bg-scale $HOME/pictures/wallpaper/art/*
+# SSH
+super + z
+        urxvt --hold -e ssh ferum.local   
+super + g
+        urxvt --hold -e ~/scripts/hpc-connect.sh
+# Neomutt                                                                              
+super + c 
+        urxvt -e neomutt                                       
+# newsboat                                                                 
+super + n
+        urxvt -e newsboat
+# gomuks
+super + i
+        urxvt -e gomuks
+# calcurse
+super + comma
+        urxvt -e calcurse
+# screenshot
+Print
+        shutter -s -e
+# Ranger
+super + b 
+        urxvt -e ranger
+# bookmarks menu 
+super + y 
+        $HOME/hobbies/scripts/bookmarks_menu.sh 
+super + shift+y 
+        urxvt -e nvim "+ normal G o" +startinsert $HOME/hobbies/scripts/bookmarks 
+# rofi  
+super + d 
+        $HOME/.config/i3/rofi_dmenu.sh 
+# powermenu 
+super + p
+        $HOME/.config/i3/power_menu.sh 
+# redshift menu 
+super + o  
+        $HOME/.config/i3/redshift_menu.sh 
