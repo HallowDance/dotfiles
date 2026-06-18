@@ -88,6 +88,11 @@ export COWPATH=/usr/local/share/cows
 export TEXMFHOME=~/tex/texmf
 alias pandasay="cowsay -f panda"
 
+# Show largest entries (incl. dotfiles) in a dir. Usage: dirsizes [path] [count]
+dirsizes() {
+  du -sh "${1:-.}"/* "${1:-.}"/.[!.]* 2>/dev/null | sort -rh | head -"${2:-20}"
+}
+
 
 export ZSH="/home/hallowdance/.oh-my-zsh"
 source ~/.oh-my-zsh/oh-my-zsh.sh
